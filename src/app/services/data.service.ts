@@ -69,4 +69,17 @@ export class DataService {
   getUserDate(){
     return this.userInfo;
   }
+
+  progress = 0;
+
+  getUserProgress():number{
+    return this.progress;
+  }
+
+  setUserProgress(newProgress:number){
+    this.progress = newProgress;
+  }
+
+  ngOnInit(): void {
+  }
 }

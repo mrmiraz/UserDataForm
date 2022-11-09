@@ -11,12 +11,13 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 body {
     margin: 0;
     font-family: Roboto, sans-serif;
+    background-color: #70f2e8;
 }
 
 mat-card {
-    max-width: 80%;
+    /*max-width: 80%;*/
     margin: 2em auto;
-    /*text-align: center;*/
+    text-align: center;
 }
 
 .col4{

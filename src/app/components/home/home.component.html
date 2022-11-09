@@ -23,7 +23,7 @@
             </mat-form-field>
         </div>
         <div fxLayoutAlign="space-between" fxFlex="100%">
-          <mat-form-field appearance="fill" fxFlex="40%">
+          <mat-form-field appearance="fill" fxFlex="40%" >
             <mat-icon matPrefix>face</mat-icon>
             <mat-label>Mid Name</mat-label>
             <input matInput name = "userMidName" [(ngModel)] = "userInfo.userName.midName" placeholder="Mahmudur" required>
@@ -72,52 +72,6 @@
         </div>
 
 <!--        permanent address-->
-
-        <div fxFlex="wrap">Parmanent Address</div>
-        <div fxLayoutAlign="space-between" fxFlex="100%">
-          <mat-form-field appearance="fill" fxFlex="40%">
-            <mat-icon matPrefix>home</mat-icon>
-            <mat-label>House/Village</mat-label>
-            <input matInput name = "permanentVillage" [(ngModel)] = "userInfo.permanentAddress.village"  placeholder="Baganbari" required>
-          </mat-form-field>
-          <mat-form-field appearance="fill" fxFlex="40%">
-            <mat-icon matPrefix>home</mat-icon>
-            <mat-label>Road/Block/Sector/Upazila</mat-label>
-            <input name = "permanentUpazila" [(ngModel)] = "userInfo.permanentAddress.upazila" matInput placeholder="Kaliakair" required>
-          </mat-form-field>
-        </div>
-
-        <div fxLayoutAlign="space-between" fxFlex="100%">
-          <mat-form-field appearance="fill" fxFlex="40%">
-            <mat-icon matPrefix>home</mat-icon>
-            <mat-label>Police Station</mat-label>
-            <input name = "parmanentpoliceStation" [(ngModel)] = "userInfo.permanentAddress.policeStation" matInput placeholder="" required>
-          </mat-form-field>
-          <mat-form-field appearance="fill" fxFlex="40%">
-            <mat-icon matPrefix>home</mat-icon>
-            <mat-label>Road/Block/Sector/Upazila</mat-label>
-            <input name = "permanentUpazila" [(ngModel)] = "userInfo.permanentAddress.upazila" matInput placeholder="Kaliakair" required>
-          </mat-form-field>
-        </div>
-
-        <div fxLayoutAlign="space-between" fxFlex="100%">
-          <mat-form-field appearance="fill" fxFlex="40%">
-            <mat-icon matPrefix>home</mat-icon>
-            <mat-label>Post Office</mat-label>
-            <input name = "permanentPostOffice" [(ngModel)] = "userInfo.permanentAddress.postOffice" matInput placeholder="" required>
-          </mat-form-field>
-          <mat-form-field appearance="fill" fxFlex="40%">
-            <mat-icon matPrefix>home</mat-icon>
-            <mat-label>Post Code</mat-label>
-            <input name = "permanentPostCode" [(ngModel)] = "userInfo.permanentAddress.postCode" matInput placeholder="" required>
-          </mat-form-field>
-        </div>
-
-        <mat-form-field appearance="fill" fxFlex="100%">
-          <mat-icon matPrefix>home</mat-icon>
-          <mat-label>District</mat-label>
-          <input name = "permanentDistrict" [(ngModel)] = "userInfo.permanentAddress.district" matInput placeholder="" required>
-        </mat-form-field>
 
         <div fxLayoutAlign="space-between" fxFlex="100%">
           <mat-form-field appearance="fill" fxFlex="40%">
@@ -173,24 +127,25 @@
           </mat-form-field>
         </div>
 
+        <div *ngIf="userInfo.nationality =='Bangladeshi'">
+          <app-address></app-address>
+        </div>
+
         <div fxLayoutAlign="space-between" fxFlex="100%">
           <mat-form-field *ngIf="userInfo.nationality == 'Indian'" appearance="fill">
             <mat-icon matPrefix>email</mat-icon>
               <mat-label>Select State</mat-label>
               <mat-select name = "userState" [(ngModel)] = "userInfo.state" required>
-                <mat-option *ngFor="let stat of otherStates.indian" [value]="stat" ]>{{stat}}</mat-option>
+                <mat-option *ngFor="let indianState of otherStates.indian" [value]="indianState">{{indianState}}</mat-option>
               </mat-select>
              </mat-form-field>
           <mat-form-field *ngIf="userInfo.nationality == 'Pakistani'" appearance="fill">
             <mat-icon matPrefix>opacity</mat-icon>
             <mat-label>Select State</mat-label>
             <mat-select name = "userState" [(ngModel)] = "userInfo.state" required>
-              <mat-option value="Gilgit">Gilgit</mat-option>
-              <mat-option value="Islamabad">Islamabad</mat-option>
-              <mat-option value="Peshawar">Peshawar</mat-option>
+              <mat-option *ngFor="let pakiState of otherStates.pakistan" [value]="pakiState">{{pakiState}}</mat-option>
             </mat-select>
           </mat-form-field>
         </div>
-        <button mat-raised-button (click)="nextPage()" color="primary">Next</button>
+        <button mat-raised-button style="margin-left: auto" (click)="nextPage()" color="primary">Next</button>
       </form>
-

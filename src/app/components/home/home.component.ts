@@ -1,6 +1,7 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import {Router} from "@angular/router";
 import {DataService} from "../../services/data.service";
+import {AppComponent} from "../../app.component";
 
 @Component({
   selector: 'app-home',
@@ -12,7 +13,9 @@ export class HomeComponent implements OnInit {
   @Output() showData:EventEmitter<any> = new EventEmitter<any>();
 
   userInfo:any;
+
   constructor(private router:Router,private dataService:DataService) {
+
   }
 
   occupations=["Businessman","Farmer", "Teacher","Lawyer","House-wife"]
@@ -26,11 +29,13 @@ export class HomeComponent implements OnInit {
 
   nextPage(){
     this.onSubmit();
+    this.dataService.setUserProgress(33);
     this.router.navigateByUrl("/page2");
     this.showData.emit(this.userInfo);
   }
 
   ngOnInit(): void {
     this.userInfo = this.dataService.getUserDate();
+    this.dataService.setUserProgress(30);
   }
 }

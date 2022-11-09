@@ -1,0 +1,49 @@
+<div fxLayout="row wrap" fxLayoutAlign="space-between center">
+  <div fxFlex="wrap">Parmanent Address</div>
+  <div fxLayoutAlign="space-between" fxFlex="100%">
+    <mat-form-field appearance="fill" fxFlex="40%">
+      <mat-icon matPrefix>home</mat-icon>
+      <mat-label>House/Village</mat-label>
+      <input matInput name = "permanentVillage" [(ngModel)] = "userInfo.permanentAddress.village"  placeholder="Baganbari" required>
+    </mat-form-field>
+    <mat-form-field appearance="fill" fxFlex="40%">
+      <mat-icon matPrefix>home</mat-icon>
+      <mat-label>Road/Block/Sector/Upazila</mat-label>
+      <input name = "permanentUpazila" [(ngModel)] = "userInfo.permanentAddress.upazila" matInput placeholder="Kaliakair" required>
+    </mat-form-field>
+  </div>
+
+  <div fxLayoutAlign="space-between" fxFlex="100%">
+    <mat-form-field appearance="fill" fxFlex="40%">
+      <mat-icon matPrefix>home</mat-icon>
+      <mat-label>Police Station</mat-label>
+      <input name = "parmanentpoliceStation" [(ngModel)] = "userInfo.permanentAddress.policeStation" matInput placeholder="" required>
+    </mat-form-field>
+    <mat-form-field appearance="fill" fxFlex="40%">
+      <mat-icon matPrefix>home</mat-icon>
+      <mat-label>Road/Block/Sector/Upazila</mat-label>
+      <input name = "permanentUpazila" [(ngModel)] = "userInfo.permanentAddress.upazila" matInput placeholder="Kaliakair" required>
+    </mat-form-field>
+  </div>
+
+  <div fxLayoutAlign="space-between" fxFlex="100%">
+    <mat-form-field appearance="fill" fxFlex="40%">
+      <mat-icon matPrefix>home</mat-icon>
+      <mat-label>Post Office</mat-label>
+      <input name = "permanentPostOffice" [(ngModel)] = "userInfo.permanentAddress.postOffice" matInput placeholder="" required>
+    </mat-form-field>
+    <mat-form-field appearance="fill" fxFlex="40%">
+      <mat-icon matPrefix>home</mat-icon>
+      <mat-label>Post Code</mat-label>
+      <input name = "permanentPostCode" [(ngModel)] = "userInfo.permanentAddress.postCode" matInput placeholder="" required>
+    </mat-form-field>
+  </div>
+
+  <mat-form-field appearance="fill" fxFlex="100%">
+    <mat-icon matPrefix>home</mat-icon>
+    <mat-label>District</mat-label>
+    <input name = "permanentDistrict" [(ngModel)] = "userInfo.permanentAddress.district" matInput placeholder="" required>
+  </mat-form-field>
+</div>
+
+

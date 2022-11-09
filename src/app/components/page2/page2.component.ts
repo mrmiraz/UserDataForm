@@ -21,6 +21,7 @@ export class Page2Component implements OnInit {
   userInfo:any;
   constructor(private dataService:DataService) {
     this.userInfo = dataService.userInfo;
+    this.dataService.progress = 33;
     // console.log(this.userInfo.userName.firstName);
   }
 

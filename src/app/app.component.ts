@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import {NgForm} from '@angular/forms';
 import {Page2Component} from "./components/page2/page2.component";
+import {DataService} from "./services/data.service";
 
 interface dataType{
   name:string;
@@ -14,7 +15,9 @@ interface dataType{
 })
 
 export class AppComponent {
-  constructor() {
+  progress:any;
+  constructor(private  dataService:DataService) {
+    this.progress = dataService.getUserProgress();
   }
 
   userInfo = {
