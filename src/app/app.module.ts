@@ -18,6 +18,12 @@ import {FlexLayoutModule} from '@angular/flex-layout';
 import { DatashowComponent } from './components/datashow/datashow.component';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import {MatNativeDateModule} from "@angular/material/core";
+import { HeaderComponent } from './components/header/header.component';
+import { FooterComponent } from './components/footer/footer.component';
+import { AddressComponent } from './components/address/address.component';
+import {MatBadgeModule} from "@angular/material/badge";
+import {MatProgressBarModule} from '@angular/material/progress-bar';
+import {MatSliderModule} from "@angular/material/slider";
 
 
 @NgModule({
@@ -26,25 +32,31 @@ import {MatNativeDateModule} from "@angular/material/core";
     HomeComponent,
     Page2Component,
     DatashowComponent,
+    HeaderComponent,
+    FooterComponent,
+    AddressComponent,
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    BrowserAnimationsModule,
-    FormsModule,
-    ReactiveFormsModule,
-    MatButtonModule,
-    MatCardModule,
-    MatFormFieldModule,
-    MatIconModule,
-    MatInputModule,
-    MatGridListModule,
-    MatSelectModule,
-    AppRoutingModule,
-    FlexLayoutModule,
-    MatDatepickerModule,
-    MatNativeDateModule
-  ],
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        BrowserAnimationsModule,
+        FormsModule,
+        ReactiveFormsModule,
+        MatButtonModule,
+        MatCardModule,
+        MatFormFieldModule,
+        MatIconModule,
+        MatInputModule,
+        MatGridListModule,
+        MatSelectModule,
+        AppRoutingModule,
+        FlexLayoutModule,
+        MatDatepickerModule,
+        MatNativeDateModule,
+        MatBadgeModule,
+        MatProgressBarModule,
+        MatSliderModule
+    ],
   providers: [],
   bootstrap: [AppComponent]
 })
