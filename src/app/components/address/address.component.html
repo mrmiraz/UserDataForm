@@ -1,49 +1,68 @@
+
+
 <div fxLayout="row wrap" fxLayoutAlign="space-between center">
-  <div fxFlex="wrap">Parmanent Address</div>
+
+
   <div fxLayoutAlign="space-between" fxFlex="100%">
     <mat-form-field appearance="fill" fxFlex="40%">
       <mat-icon matPrefix>home</mat-icon>
-      <mat-label>House/Village</mat-label>
-      <input matInput name = "permanentVillage" [(ngModel)] = "userInfo.permanentAddress.village"  placeholder="Baganbari" required>
+      <mat-label>District</mat-label>
+      <mat-select name = "userDistrict" [(ngModel)] = "userInfo.permanentAddress.district" required>
+        <mat-option *ngFor="let district of bdDistrict | keyvalue"  [value]="district.key" (click)="setUpazilas(district.value)">{{district.key}}</mat-option>
+      </mat-select>
+<!--      <input name = "permanentDistrict" [(ngModel)] = "userInfo.permanentAddress.district" matInput placeholder="" required>-->
     </mat-form-field>
+
     <mat-form-field appearance="fill" fxFlex="40%">
       <mat-icon matPrefix>home</mat-icon>
       <mat-label>Road/Block/Sector/Upazila</mat-label>
-      <input name = "permanentUpazila" [(ngModel)] = "userInfo.permanentAddress.upazila" matInput placeholder="Kaliakair" required>
+      <mat-select  name ="permanentAddress.upazila"  [(ngModel)] = "userInfo.permanentAddress.upazila" matInput placeholder="Kaliakair" required>
+        <mat-option *ngFor="let upazila of upazilas | keyvalue"  [value]="upazila.key" (click)="setPoliceStations(upazila.value)">{{upazila.key}}</mat-option>
+      </mat-select>
+<!--      <input name = "parmanentAddress.upazila" matInput placeholder="Kaliakair" required>-->
     </mat-form-field>
-  </div>
 
+  </div>
   <div fxLayoutAlign="space-between" fxFlex="100%">
     <mat-form-field appearance="fill" fxFlex="40%">
       <mat-icon matPrefix>home</mat-icon>
       <mat-label>Police Station</mat-label>
-      <input name = "parmanentpoliceStation" [(ngModel)] = "userInfo.permanentAddress.policeStation" matInput placeholder="" required>
+      <mat-select  name = "parmanentpoliceStation" [(ngModel)] = "userInfo.permanentAddress.policeStation" matInput placeholder="Kaliakair" required>
+        <mat-option *ngFor="let policeStation of policeStations | keyvalue"  [value]="policeStation.key" (click)="setPostOffices(policeStation.value)">{{policeStation.key}}</mat-option>
+      </mat-select>
+<!--      <input name = "parmanentpoliceStation" [(ngModel)] = "userInfo.permanentAddress.policeStation" matInput placeholder="" required>-->
     </mat-form-field>
+
     <mat-form-field appearance="fill" fxFlex="40%">
       <mat-icon matPrefix>home</mat-icon>
-      <mat-label>Road/Block/Sector/Upazila</mat-label>
-      <input name = "permanentUpazila" [(ngModel)] = "userInfo.permanentAddress.upazila" matInput placeholder="Kaliakair" required>
+      <mat-label>Post Office</mat-label>
+      <mat-select  name = "permanentPostOffice" [(ngModel)] = "userInfo.permanentAddress.postOffice" matInput placeholder="Kaliakair" required>
+        <mat-option *ngFor="let postOffice of postOffices | keyvalue"  [value]="postOffice.key" (click)="setVillages(postOffice.value)">{{postOffice.key}}</mat-option>
+      </mat-select>
+<!--      <input name = "permanentPostOffice" [(ngModel)] = "userInfo.permanentAddress.postOffice" matInput placeholder="" required>-->
     </mat-form-field>
   </div>
 
   <div fxLayoutAlign="space-between" fxFlex="100%">
     <mat-form-field appearance="fill" fxFlex="40%">
       <mat-icon matPrefix>home</mat-icon>
-      <mat-label>Post Office</mat-label>
-      <input name = "permanentPostOffice" [(ngModel)] = "userInfo.permanentAddress.postOffice" matInput placeholder="" required>
+      <mat-label>House/Village</mat-label>
+      <mat-select  name = "permanentVillage" [(ngModel)] = "userInfo.permanentAddress.village" matInput placeholder="Kaliakair" required>
+        <mat-option *ngFor="let permanentVillage of villages"  [value]="permanentVillage" >{{permanentVillage}}</mat-option>
+      </mat-select>
+<!--      <input matInput name = "permanentVillage" [(ngModel)] = "userInfo.permanentAddress.village"  placeholder="Baganbari" required>-->
     </mat-form-field>
     <mat-form-field appearance="fill" fxFlex="40%">
       <mat-icon matPrefix>home</mat-icon>
       <mat-label>Post Code</mat-label>
-      <input name = "permanentPostCode" [(ngModel)] = "userInfo.permanentAddress.postCode" matInput placeholder="" required>
+      <mat-select   name = "permanentPostCode" [(ngModel)] = "userInfo.permanentAddress.postCode" matInput placeholder="Kaliakair" required>
+        <mat-option *ngFor="let postCode of postCodes"  [value]="postCode" >{{postCode}}</mat-option>
+      </mat-select>
+<!--      <input name = "permanentPostCode" [(ngModel)] = "userInfo.permanentAddress.postCode" matInput placeholder="" required>-->
     </mat-form-field>
   </div>
-
-  <mat-form-field appearance="fill" fxFlex="100%">
-    <mat-icon matPrefix>home</mat-icon>
-    <mat-label>District</mat-label>
-    <input name = "permanentDistrict" [(ngModel)] = "userInfo.permanentAddress.district" matInput placeholder="" required>
-  </mat-form-field>
 </div>
 
-
+<!--<div *ngFor="let bd of data | keyvalue">-->
+<!--key:{{bd.key}}-->
+<!--</div>-->

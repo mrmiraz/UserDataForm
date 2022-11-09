@@ -60,6 +60,10 @@ export class DataService {
     "state":"",
     "bloodGroup":"",
     "disability":"",
+    "nationalIdNo":"",
+    "passportNo":"",
+    "tinNo":"",
+    "maritalStatus":"",
   }
 
   setUserData(data:any){

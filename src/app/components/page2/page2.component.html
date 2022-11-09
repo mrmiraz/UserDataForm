@@ -1,19 +1,20 @@
 
+<!--[formGroup]="page2Form"-->
 
-<form #form = "ngForm" [formGroup]="page2Form" (ngSubmit)="page2DataSubmit(form.value)"  fxLayout="row wrap" fxLayoutAlign="space-between" >
+<form #form = "ngForm" (ngSubmit)="page2DataSubmit(form.value)"  fxLayout="row wrap" fxLayoutAlign="space-between" >
   <mat-form-field  appearance="fill" fxFlex="45%"fxFlex.sm="100%" fxFlex.xs="100%" >
     <mat-label>Select Blood Group
       <mat-icon fontIcon=""></mat-icon></mat-label>
-    <mat-select formControlName="userBloodGroup" name = "userState" [(ngModel)] = "userInfo.bloodGroup" required>
+    <mat-select  name = "userState" [(ngModel)] = "userInfo.bloodGroup" required>
       <mat-option *ngFor="let bloodG of bloodGroup" [value] = "bloodG">{{bloodG}}</mat-option>
     </mat-select>
     <span style="color: red" ></span>
   </mat-form-field>
 
-  <mat-form-field  appearance="fill" fxFlex="45%"fxFlex.sm="100%" fxFlex.xs="100%" >
-    <input matInput formControlName="name">
-    <span style="color: red" *ngIf="name && name.invalid">This is invalid</span>
-  </mat-form-field>
+<!--  <mat-form-field  appearance="fill" fxFlex="45%"fxFlex.sm="100%" fxFlex.xs="100%" >-->
+<!--    <input matInput formControlName="name">-->
+<!--    <span style="color: red" *ngIf="name && name.invalid">This is invalid</span>-->
+<!--  </mat-form-field>-->
 
 <!--  <mat-form-field  appearance="fill" fxFlex="45%"fxFlex.sm="100%" fxFlex.xs="100%">-->
 <!--    <mat-label>Madical Disability(if any)</mat-label>-->
@@ -33,5 +34,37 @@
 <!--    </mat-datepicker>-->
 <!--  </mat-form-field>-->
 
-  <button mat-raised-button [disabled]="page2Form.invalid" style="margin-left: auto;" type="submit">Next</button>
+
+  <div fxLayoutAlign="space-between" fxFlex="100%">
+    <mat-label>Place of Birth</mat-label>
+  </div>
+  <app-address></app-address>
+
+  <div fxLayoutAlign="space-between" fxFlex="100%">
+    <mat-form-field appearance="fill" fxFlex="40%">
+      <mat-icon matPrefix>face</mat-icon>
+      <mat-label>National Id No</mat-label>
+      <input matInput name = "userNationalIdNo" [(ngModel)] = "userInfo.nationalIdNo" placeholder="Mahmudur" required>
+    </mat-form-field>
+    <mat-form-field appearance="fill" fxFlex="40%">
+      <mat-icon matPrefix>face</mat-icon>
+      <mat-label>Passport No</mat-label>
+      <input matInput name = "userPassportNo" [(ngModel)] = "userInfo.passportNo" placeholder="Rahman" required>
+    </mat-form-field>
+  </div>
+
+  <div fxLayoutAlign="space-between" fxFlex="100%">
+    <mat-form-field appearance="fill" fxFlex="40%">
+      <mat-icon matPrefix>face</mat-icon>
+      <mat-label>TIN No</mat-label>
+      <input matInput name = "userTinNo" [(ngModel)] = "userInfo.tinNo" placeholder="1234" required>
+    </mat-form-field>
+    <mat-form-field appearance="fill" fxFlex="40%">
+      <mat-icon matPrefix>face</mat-icon>
+      <mat-label>Marital Status</mat-label>
+      <input matInput name = "userMaritalStatus" [(ngModel)] = "userInfo.maritalStatus" placeholder="Rahman" required>
+    </mat-form-field>
+  </div>
+
+  <button mat-raised-button  style="margin-left: auto;" type="submit">Next</button>
 </form>

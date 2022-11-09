@@ -2,6 +2,7 @@
 <mat-card-title>
       Parsonal Information Form
   </mat-card-title>
+
     <!-- Title of an Card -->
       <form #myForm="ngForm" (ngSubmit)="onSubmit()" fxLayout="row wrap" fxLayoutAlign="space-between center">
         <mat-form-field appearance="fill" fxFlex="100%">
@@ -71,7 +72,7 @@
           </mat-form-field>
         </div>
 
-<!--        permanent address-->
+
 
         <div fxLayoutAlign="space-between" fxFlex="100%">
           <mat-form-field appearance="fill" fxFlex="40%">
@@ -127,12 +128,14 @@
           </mat-form-field>
         </div>
 
+        <!--        permanent address-->
         <div *ngIf="userInfo.nationality =='Bangladeshi'">
+          <mat-label style="font-weight: bold">Permanent Address</mat-label>
           <app-address></app-address>
         </div>
 
         <div fxLayoutAlign="space-between" fxFlex="100%">
-          <mat-form-field *ngIf="userInfo.nationality == 'Indian'" appearance="fill">
+          <mat-form-field *ngIf="userInfo.nationality == 'Other'" appearance="fill">
             <mat-icon matPrefix>email</mat-icon>
               <mat-label>Select State</mat-label>
               <mat-select name = "userState" [(ngModel)] = "userInfo.state" required>

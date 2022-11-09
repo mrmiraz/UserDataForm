@@ -26,18 +26,18 @@ export class Page2Component implements OnInit {
     // console.log(this.userInfo.userName.firstName);
   }
 
-  page2Form = new FormGroup({
-    userBloodGroup:new FormControl('',),
-    name:new FormControl('',[Validators.required, Validators.email]),
-  })
-
-  get userBloodGroup(){
-    return this.page2Form.get('userBloodGroup');
-  }
-
-  get name(){
-    return this.page2Form.get('name');
-  }
+  // page2Form = new FormGroup({
+  //   "userBloodGroup":new FormControl('',),
+  //   "name":new FormControl('',[Validators.required, Validators.email]),
+  // })
+  //
+  // get userBloodGroup(){
+  //   return this.page2Form.get('userBloodGroup');
+  // }
+  //
+  // get name(){
+  //   return this.page2Form.get('name');
+  // }
   ngOnInit(): void {
     this.parentFunction.emit();
   }
