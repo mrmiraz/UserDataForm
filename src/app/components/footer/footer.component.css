@@ -1,0 +1,14 @@
+*{
+  align-items: center;
+  margin-left: auto;
+}
+.font-footer{
+  background-color:#ff8400;
+  border-radius: 50%;
+  height: 2em;
+  width: 2em;
+  font-size: 2em;
+  color: white;
+  margin: 2px;
+  align-items: center;
+}
