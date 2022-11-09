@@ -1,0 +1,46 @@
+/* You can add global styles to this file, and also import other style files */
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+@import '~https://fonts.googleapis.com/icon?family=Material+Icons';
+@import '~@angular/material/prebuilt-themes/deeppurple-amber.css';
+/*.mat-card {*/
+/*    text-align: -webkit-center;*/
+/*}*/
+
+body {
+    margin: 0;
+    font-family: Roboto, sans-serif;
+}
+
+mat-card {
+    max-width: 80%;
+    margin: 2em auto;
+    /*text-align: center;*/
+}
+
+.col4{
+    width:20%; padding: 2%; margin:2%
+}
+.col3{
+    width:30%; padding: 2%; margin:2%
+}
+.col2{
+    width:40%; padding: 2%;
+}
+
+.col1{
+    width:80%; padding: 2%; margin:2%;
+    display: block;
+}
+
+.header-text{
+  font-weight: bold;
+  font-size: 20px;
+}
+
+.marginRound > *{
+  margin: 10px;
+}
+
+

@@ -1,0 +1,15 @@
+.login-card{
+    width: 50%;
+    border: 3px;
+    position: relative;
+    top:25%;
+    left: 25%;
+    border-radius: 25px;
+    align-items: center;
+    padding:25px;
+}
+
+.content{
+    margin: auto;
+    left: 50%;
+}
