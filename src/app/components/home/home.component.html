@@ -4,11 +4,12 @@
   </mat-card-title>
 
     <!-- Title of an Card -->
-      <form #myForm="ngForm" (ngSubmit)="onSubmit()" fxLayout="row wrap" fxLayoutAlign="space-between center">
-        <mat-form-field appearance="fill" fxFlex="100%">
+      <form #myForm="ngForm"(ngSubmit)="onSubmit()" fxLayout="row wrap" fxLayoutAlign="space-between center">
+        <mat-form-field  appearance="fill" fxFlex="100%">
           <mat-icon matPrefix>account_box</mat-icon>
           <mat-label>Id No</mat-label>
-          <input matInput name = "id" [(ngModel)] = "userInfo.id" type = "number" placeholder="0123564" required>
+          <input  matInput name = "id" [(ngModel)] = "userInfo.id" type = "number" placeholder="0123564" required>
+<!--          <span >Id is less than 7</span>-->
         </mat-form-field>
 
         <div fxLayoutAlign="space-between" fxFlex="100%">

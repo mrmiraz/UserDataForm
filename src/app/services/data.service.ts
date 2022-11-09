@@ -58,6 +58,8 @@ export class DataService {
     "phoneNumber":"",
     "email":"",
     "state":"",
+    "medicalDisability":"",
+    "dateOfBirth":"",
     "bloodGroup":"",
     "disability":"",
     "nationalIdNo":"",

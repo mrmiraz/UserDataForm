@@ -2,6 +2,7 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import {Router} from "@angular/router";
 import {DataService} from "../../services/data.service";
 import {AppComponent} from "../../app.component";
+import {FormGroup, FormControl, Validators} from "@angular/forms";
 
 @Component({
   selector: 'app-home',
@@ -11,21 +12,38 @@ import {AppComponent} from "../../app.component";
 export class HomeComponent implements OnInit {
 
   @Output() showData:EventEmitter<any> = new EventEmitter<any>();
-
   userInfo:any;
 
   constructor(private router:Router,private dataService:DataService) {
-
   }
+
+  // firstPageForm = new FormGroup(
+  //   {
+  //     // "user":new FormControl('',[Validators.required]),
+  //     userId: new FormControl('',[Validators.required]),
+  //   }
+  // );
+
+  // get userId(){
+  //   return this.firstPageForm.get('userId');
+  // }
+
+
+
+
+
+
 
   occupations=["Businessman","Farmer", "Teacher","Lawyer","House-wife"]
   otherStates ={
     "indian":["Asam","Bihar","Bombay"],
     "pakistan":["Gilgit", "Islamad","Peshawar"],
   }
+
   onSubmit(){
     // console.log(this.userInfo.userName.firstName);
   }
+
 
   nextPage(){
     this.onSubmit();

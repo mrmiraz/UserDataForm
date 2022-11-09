@@ -76,12 +76,18 @@ export class AddressComponent implements OnInit {
 
   setUpazilas(data:any){
     this.upazilas = data;
+    this.policeStations = null;
+    this.postOffices = null;
+    this.villages = null;
   }
   setPoliceStations(data:any){
     this.policeStations = data;
+    this.postOffices = null;
+    this.villages = null;
   }
   setPostOffices(data:any){
     this.postOffices = data;
+    this.villages = null;
   }
   setVillages(data:any){
     this.villages = data;
