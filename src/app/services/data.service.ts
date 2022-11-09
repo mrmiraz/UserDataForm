@@ -51,10 +51,16 @@ export class DataService {
       "postCode":"",
       "district":""
     },
+    "otherCountryAddress":{
+      "addressLine1":"",
+      "addressLine2":"",
+      "City":"",
+      "State":"",
+    },
     "gender":"",
     "religion":"",
     "nationality":"",
-    "mobileNumber":"",
+    "mobileNumber":[],
     "phoneNumber":"",
     "email":"",
     "state":"",
@@ -63,6 +69,8 @@ export class DataService {
     "bloodGroup":"",
     "disability":"",
     "nationalIdNo":"",
+
+    "postalCode":"",
     "passportNo":"",
     "tinNo":"",
     "maritalStatus":"",

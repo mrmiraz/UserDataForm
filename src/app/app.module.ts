@@ -24,6 +24,8 @@ import { AddressComponent } from './components/address/address.component';
 import {MatBadgeModule} from "@angular/material/badge";
 import {MatProgressBarModule} from '@angular/material/progress-bar';
 import {MatSliderModule} from "@angular/material/slider";
+import {MatChipsModule} from '@angular/material/chips';
+import { OtherCountryAddressComponent } from './components/other-country-address/other-country-address.component';
 
 
 @NgModule({
@@ -35,6 +37,7 @@ import {MatSliderModule} from "@angular/material/slider";
     HeaderComponent,
     FooterComponent,
     AddressComponent,
+    OtherCountryAddressComponent,
   ],
     imports: [
         BrowserModule,
@@ -55,7 +58,8 @@ import {MatSliderModule} from "@angular/material/slider";
         MatNativeDateModule,
         MatBadgeModule,
         MatProgressBarModule,
-        MatSliderModule
+        MatSliderModule,
+         MatChipsModule
     ],
   providers: [],
   bootstrap: [AppComponent]

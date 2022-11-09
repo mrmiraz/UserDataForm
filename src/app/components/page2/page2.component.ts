@@ -1,6 +1,6 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import {DataService} from "../../services/data.service";
-import {FormGroup, FormControl, Validators} from '@angular/forms'
+import {FormGroup, FormControl, Validators,FormBuilder, FormArray} from '@angular/forms'
 import {Data} from "@angular/router";
 
 import {
@@ -19,23 +19,31 @@ export class Page2Component implements OnInit {
 
   @Output() parentFunction: EventEmitter<any> = new EventEmitter<any>();
   userInfo:any;
+  mir:any;
   constructor(private dataService:DataService) {
     this.userInfo = dataService.userInfo;
     this.dataService.progress = 33;
     // console.log(this.userInfo.userName.firstName);
   }
+  mobile=[""];
+  addMobile(mobile:any){
+    mobile.push(mobile.toString());
 
-  // page2Form = new FormGroup({
-  //   "userBloodGroup":new FormControl('',),
-  //   "name":new FormControl('',[Validators.required, Validators.email]),
+  }
+
+
+
+  // page2DataForm = new FormGroup({
+  //   userBloodGroup:new FormControl('',[Validators.email]),
+  //   // "name":new FormControl('',[Validators.required, Validators.email]),
   // })
   //
   // get userBloodGroup(){
-  //   return this.page2Form.get('userBloodGroup');
+  //   return this.page2DataForm.get('userBloodGroup')!;
   // }
   //
   // get name(){
-  //   return this.page2Form.get('name');
+  //   return this.page2DataForm.get('name')!;
   // }
   ngOnInit(): void {
     this.parentFunction.emit();

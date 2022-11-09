@@ -14,30 +14,31 @@ export class HomeComponent implements OnInit {
   @Output() showData:EventEmitter<any> = new EventEmitter<any>();
   userInfo:any;
 
+  six = 6;
   constructor(private router:Router,private dataService:DataService) {
   }
 
-  // firstPageForm = new FormGroup(
+  // firstForm = new FormGroup(
   //   {
   //     // "user":new FormControl('',[Validators.required]),
-  //     userId: new FormControl('',[Validators.required]),
+  //     userBloodGroup: new FormControl('',[Validators.required]),
   //   }
   // );
-
-  // get userId(){
-  //   return this.firstPageForm.get('userId');
+  //
+  // get userBlood(){
+  //   return this.firstForm.get('userBloodGroup');
   // }
 
 
-
-
-
-
-
+  mobileCountryCode =["+93","+213","+880"]
   occupations=["Businessman","Farmer", "Teacher","Lawyer","House-wife"]
   otherStates ={
     "indian":["Asam","Bihar","Bombay"],
     "pakistan":["Gilgit", "Islamad","Peshawar"],
+  }
+
+  setMobile(mobilePreffix:string, mobileSuffix:string){
+    this.userInfo.mobileNumber.push(mobilePreffix+mobileSuffix);
   }
 
   onSubmit(){
