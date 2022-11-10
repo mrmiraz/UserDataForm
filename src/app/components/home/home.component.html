@@ -75,14 +75,34 @@
         </div>
 
         <div fxLayoutAlign="space-between" fxFlex="100%">
-          <mat-form-field appearance="fill" fxFlex="40%">
-<!--            <mat-icon matPrefix>phone</mat-icon>-->
-            <mat-label>Mobile No.</mat-label>
-            <mat-select  name = "userMobileNumber" [(ngModel)] = "userInfo.mobileNumber" required>
-              <mat-option *ngFor="let mobile of mobileCountryCode"  [value]="mobile">{{mobile}}</mat-option>
-            </mat-select>
-            <input style="display: inline" name = "userMobileNumber" [(ngModel)] = "userInfo.mobileNumber" matInput placeholder="01xxxxxxxxx" required>
-          </mat-form-field>
+          <div fxFlex="40%">
+            <mat-form-field appearance="fill" fxFlex="30%">
+              <!--            <mat-icon matPrefix>phone</mat-icon>-->
+
+              <mat-select  name = "userMobileNumber" required>
+                <mat-option *ngFor="let mobile of mobileCountryCode" (click)="setMobilePrefix(mobile)" [value]="mobile">{{mobile}}</mat-option>
+              </mat-select>
+              <!--            <input style="display: inline" name = "userMobileNumber" [(ngModel)] = "userInfo.mobileNumber" matInput placeholder="01xxxxxxxxx" required>-->
+            </mat-form-field>
+
+            <mat-form-field  appearance="fill" fxFlex="70%">
+              <mat-label>Mobile No</mat-label>
+              <mat-chip-list #chipList aria-label="+8801xxxxxxxxx">
+                <mat-chip *ngFor="let mobile of userInfo.mobileNumber" (removed)="remove(mobile)">
+                  {{mobile.mobile}}
+                  <button matChipRemove>
+                    <mat-icon>cancel</mat-icon>
+                  </button>
+                </mat-chip>
+                <input placeholder="Mobile No."
+                       [matChipInputFor]="chipList"
+                       [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+                       [matChipInputAddOnBlur]="addOnBlur"
+                       (matChipInputTokenEnd)="add($event)" type = "number" >
+              </mat-chip-list>
+            </mat-form-field>
+          </div>
+
 
           <mat-form-field appearance="fill" fxFlex="40%">
             <mat-icon matPrefix>call</mat-icon>
@@ -124,39 +144,20 @@
             <mat-icon matPrefix>opacity</mat-icon>
             <mat-label>Select Nationality</mat-label>
             <mat-select name = "userNationality" [(ngModel)] = "userInfo.nationality" required>
-              <mat-option value="Bangladeshi">Bangladeshi</mat-option>
-              <mat-option value="Indian">Indian</mat-option>
-              <mat-option value="Pakistani">Pakistani</mat-option>
-              <mat-option value="Nepali">Nepali</mat-option>
-              <mat-option value="Other">Other</mat-option>
+              <mat-option *ngFor ="let ct of country" [value]="ct">{{ct}}</mat-option>
             </mat-select>
           </mat-form-field>
         </div>
 
         <!--        permanent address-->
-        <div *ngIf="userInfo.nationality =='Bangladeshi' else elseBlock">
-          <mat-label style="font-weight: bold">Permanent Address</mat-label>
+        <div *ngIf="userInfo.nationality =='Bangladesh' else elseBlock">
+          <mat-label style="font-weight: bold; margin-right: auto">Permanent Address</mat-label>
           <app-address></app-address>
         </div>
         <ng-template #elseBlock>
-          hello
+          <mat-label style="font-weight: bold;margin-right: auto">Permanent Address</mat-label>
+          <app-other-country-address></app-other-country-address>
         </ng-template>
 
-        <div fxLayoutAlign="space-between" fxFlex="100%">
-          <mat-form-field *ngIf="userInfo.nationality == 'Other'" appearance="fill">
-            <mat-icon matPrefix>email</mat-icon>
-              <mat-label>Select State</mat-label>
-              <mat-select name = "userState" [(ngModel)] = "userInfo.state" required>
-                <mat-option *ngFor="let indianState of otherStates.indian" [value]="indianState">{{indianState}}</mat-option>
-              </mat-select>
-             </mat-form-field>
-          <mat-form-field *ngIf="userInfo.nationality == 'Pakistani'" appearance="fill">
-            <mat-icon matPrefix>opacity</mat-icon>
-            <mat-label>Select State</mat-label>
-            <mat-select name = "userState" [(ngModel)] = "userInfo.state" required>
-              <mat-option *ngFor="let pakiState of otherStates.pakistan" [value]="pakiState">{{pakiState}}</mat-option>
-            </mat-select>
-          </mat-form-field>
-        </div>
         <button mat-raised-button style="margin-left: auto" (click)="nextPage()" color="primary">Next</button>
       </form>

@@ -96,8 +96,6 @@ export class AddressComponent implements OnInit {
   setData(data:any){
     this.data = data;
   }
-
-
   getD(){
 
   }

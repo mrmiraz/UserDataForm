@@ -26,6 +26,8 @@ import {MatProgressBarModule} from '@angular/material/progress-bar';
 import {MatSliderModule} from "@angular/material/slider";
 import {MatChipsModule} from '@angular/material/chips';
 import { OtherCountryAddressComponent } from './components/other-country-address/other-country-address.component';
+import { SteperComponent } from './components/steper/steper.component';
+import {MatStepperModule} from "@angular/material/stepper";
 
 
 @NgModule({
@@ -38,29 +40,31 @@ import { OtherCountryAddressComponent } from './components/other-country-address
     FooterComponent,
     AddressComponent,
     OtherCountryAddressComponent,
+    SteperComponent,
   ],
-    imports: [
-        BrowserModule,
-        AppRoutingModule,
-        BrowserAnimationsModule,
-        FormsModule,
-        ReactiveFormsModule,
-        MatButtonModule,
-        MatCardModule,
-        MatFormFieldModule,
-        MatIconModule,
-        MatInputModule,
-        MatGridListModule,
-        MatSelectModule,
-        AppRoutingModule,
-        FlexLayoutModule,
-        MatDatepickerModule,
-        MatNativeDateModule,
-        MatBadgeModule,
-        MatProgressBarModule,
-        MatSliderModule,
-         MatChipsModule
-    ],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    BrowserAnimationsModule,
+    FormsModule,
+    ReactiveFormsModule,
+    MatButtonModule,
+    MatCardModule,
+    MatFormFieldModule,
+    MatIconModule,
+    MatInputModule,
+    MatGridListModule,
+    MatSelectModule,
+    AppRoutingModule,
+    FlexLayoutModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    MatBadgeModule,
+    MatProgressBarModule,
+    MatSliderModule,
+    MatChipsModule,
+    MatStepperModule
+  ],
   providers: [],
   bootstrap: [AppComponent]
 })

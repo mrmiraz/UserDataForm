@@ -12,7 +12,8 @@ import {
 @Component({
   selector: 'app-page2',
   templateUrl: './page2.component.html',
-  styleUrls: ['./page2.component.css']
+  styleUrls: ['./page2.component.css'],
+
 })
 
 export class Page2Component implements OnInit {
@@ -25,18 +26,18 @@ export class Page2Component implements OnInit {
     this.dataService.progress = 33;
     // console.log(this.userInfo.userName.firstName);
   }
+
   mobile=[""];
   addMobile(mobile:any){
     mobile.push(mobile.toString());
-
   }
 
 
 
-  // page2DataForm = new FormGroup({
-  //   userBloodGroup:new FormControl('',[Validators.email]),
-  //   // "name":new FormControl('',[Validators.required, Validators.email]),
-  // })
+  page2Form = new FormGroup({
+    nationalId:new FormControl('',[Validators.email]),
+    // "name":new FormControl('',[Validators.required, Validators.email]),
+  })
   //
   // get userBloodGroup(){
   //   return this.page2DataForm.get('userBloodGroup')!;
@@ -50,10 +51,13 @@ export class Page2Component implements OnInit {
   }
   bloodGroup=["A+","A-","B+","B-","AB+","AB-","O+","O-"];
   maritalStatus =["Married","Unmarried","Other"];
+  diability=["vision Impairment","deaf or hard of hearing","mental health conditions.","intellectual disability","acquired brain injury","physical disability","Other"];
   page2DataSubmit(data:any){
     console.log(this.userInfo);
     console.log(this.userInfo.bloodGroup);
     console.log(this.userInfo.email);
+
+
   }
 
 }

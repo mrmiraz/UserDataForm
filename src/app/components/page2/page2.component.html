@@ -1,7 +1,9 @@
 
 <!--[formGroup]="page2Form"-->
-
-<form #form = "ngForm"  (ngSubmit)="page2DataSubmit(form.value)"  fxLayout="row wrap" fxLayoutAlign="space-between" >
+<mat-card-title>
+  Parsonal Information Form
+</mat-card-title>
+<form  #form = "ngForm"  (ngSubmit)="page2DataSubmit(form.value)"  fxLayout="row wrap" fxLayoutAlign="space-between" >
   <mat-form-field  appearance="fill" fxFlex="45%"fxFlex.sm="100%" fxFlex.xs="100%" >
     <mat-label>Select Blood Group
       <mat-icon fontIcon=""></mat-icon></mat-label>
@@ -18,7 +20,11 @@
 
   <mat-form-field  appearance="fill" fxFlex="45%"fxFlex.sm="100%" fxFlex.xs="100%">
     <mat-label>Madical Disability(if any)</mat-label>
-    <input  matInput name = "id" [(ngModel)]="userInfo.disability">
+
+    <mat-select name = "userDisability" [(ngModel)]="userInfo.medicalDisability" required>
+      <mat-option *ngFor="let d of diability" [value] = "d">{{d}}</mat-option>
+    </mat-select>
+<!--    <input  matInput name = "id" [(ngModel)]="userInfo.disability">-->
   </mat-form-field>
 
   <mat-form-field appearance="fill" fxFlex="100%">
@@ -29,17 +35,17 @@
     <mat-datepicker #picker></mat-datepicker>
   </mat-form-field>
 
-
   <div fxLayoutAlign="space-between" fxFlex="100%">
     <mat-label>Place of Birth</mat-label>
   </div>
   <app-address></app-address>
 
+<!--  National Id and Passport No-->
   <div fxLayoutAlign="space-between" fxFlex="100%">
     <mat-form-field appearance="fill" fxFlex="40%">
       <mat-icon matPrefix>face</mat-icon>
       <mat-label>National Id No</mat-label>
-      <input matInput name = "userNationalIdNo" [(ngModel)] = "userInfo.nationalIdNo" placeholder="Mahmudur" required>
+      <input  matInput name = "userNationalIdNo" [(ngModel)] = "userInfo.nationalIdNo" placeholder="Mahmudur" required>
     </mat-form-field>
 
     <mat-form-field appearance="fill" fxFlex="40%">
@@ -65,5 +71,5 @@
     </mat-form-field>
   </div>
 
-  <button mat-raised-button  style="margin-left: auto;" type="submit">Next</button>
+  <button  mat-raised-button  style="margin-left: auto;" type="submit">Next</button>
 </form>

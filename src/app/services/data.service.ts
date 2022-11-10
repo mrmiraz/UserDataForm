@@ -54,12 +54,12 @@ export class DataService {
     "otherCountryAddress":{
       "addressLine1":"",
       "addressLine2":"",
-      "City":"",
-      "State":"",
+      "city":"",
+      "state":"",
     },
     "gender":"",
     "religion":"",
-    "nationality":"",
+    "nationality":"Bangladesh",
     "mobileNumber":[],
     "phoneNumber":"",
     "email":"",
@@ -69,7 +69,6 @@ export class DataService {
     "bloodGroup":"",
     "disability":"",
     "nationalIdNo":"",
-
     "postalCode":"",
     "passportNo":"",
     "tinNo":"",

@@ -3,7 +3,12 @@ import {Router} from "@angular/router";
 import {DataService} from "../../services/data.service";
 import {AppComponent} from "../../app.component";
 import {FormGroup, FormControl, Validators} from "@angular/forms";
+import {MatChipInputEvent} from '@angular/material/chips';
+import {COMMA, ENTER} from "@angular/cdk/keycodes";
 
+export interface Fruit {
+  name: string;
+}
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -37,6 +42,7 @@ export class HomeComponent implements OnInit {
     "pakistan":["Gilgit", "Islamad","Peshawar"],
   }
 
+  country = ["Bangladesh", "India","Pakistan"];
   setMobile(mobilePreffix:string, mobileSuffix:string){
     this.userInfo.mobileNumber.push(mobilePreffix+mobileSuffix);
   }
@@ -51,6 +57,33 @@ export class HomeComponent implements OnInit {
     this.dataService.setUserProgress(33);
     this.router.navigateByUrl("/page2");
     this.showData.emit(this.userInfo);
+  }
+
+  addOnBlur = true;
+
+  mobilePrefix="+880";
+  setMobilePrefix(mobilePrefix:any){
+    this.mobilePrefix = mobilePrefix;
+  }
+
+  readonly separatorKeysCodes = [ENTER, COMMA] as const;
+  add(event: MatChipInputEvent): void {
+    const value = (event.value || '').trim();
+    // Add our fruit
+    if (value) {
+      this.userInfo.mobileNumber.push({mobile: this.mobilePrefix+value});
+    }
+    // Clear the input value
+    event.chipInput!.clear();
+  }
+
+   mobileNumber = [];
+  remove(mobileNumber1: any): void {
+    const index = this.userInfo.mobileNumber.indexOf(mobileNumber1);
+
+    if (index >= 0) {
+      this.userInfo.mobileNumber.splice(index, 1);
+    }
   }
 
   ngOnInit(): void {

@@ -1,0 +1,24 @@
+<mat-stepper #stepper>
+  <mat-step [stepControl]="firstFormGroup">
+    <mat-progress-bar value="33"></mat-progress-bar>
+    <form [formGroup]="firstFormGroup">
+      <ng-template matStepLabel>Personal Info</ng-template>
+      <div  style="margin-top: 10px"></div>
+      <app-home></app-home>
+    </form>
+  </mat-step>
+
+  <mat-step [stepControl]="secondFormGroup">
+    <mat-progress-bar value="66"></mat-progress-bar>
+    <form [formGroup]="secondFormGroup">
+      <ng-template matStepLabel>Fill out your address</ng-template>
+      <div  style="margin-top: 10px"></div>
+      <app-page2></app-page2>
+    </form>
+  </mat-step>
+  <mat-step>
+    <mat-progress-bar value="100"></mat-progress-bar>
+    <ng-template matStepLabel>Done</ng-template>
+    <p>You are now done.</p>
+  </mat-step>
+</mat-stepper>
