@@ -2,21 +2,21 @@
 <mat-card-title>
       Parsonal Information Form
   </mat-card-title>
-
     <!-- Title of an Card -->
-      <form #myForm="ngForm"  (ngSubmit)="onSubmit()" fxLayout="row wrap" fxLayoutAlign="space-between center">
+      <form #myForm="ngForm" [formGroup]="firstFormGroup" (ngSubmit)="onSubmit()" fxLayout="row wrap" fxLayoutAlign="space-between center">
+
         <mat-form-field  appearance="fill" fxFlex="100%">
           <mat-icon matPrefix>account_box</mat-icon>
           <mat-label>Id No</mat-label>
-          <input  matInput name = "id" [(ngModel)] = "userInfo.id" type = "number" placeholder="012356" required>
-          <span style="color: red" *ngIf="userInfo.id.toString().length < six">Id is less than 6</span>
+          <input  matInput [formControl]="userId" name = "id" [(ngModel)] = "userInfo.id" type = "text" placeholder="012356" required>
+          <span style="color: red" *ngIf="userId.invalid">Id is less than 6</span>
         </mat-form-field>
         <div fxLayoutAlign="space-between" fxFlex="100%">
             <mat-form-field appearance="fill" fxFlex="40%">
               <mat-icon matPrefix>face</mat-icon>
               <mat-label>Prefix Name</mat-label>
-              <input matInput name = "userPreffixName" pattern="[a-zA-A]" [(ngModel)] = "userInfo.userName.prefixName" placeholder="Md.">
-              <span style="color: red" *ngIf="userInfo.userName.prefixName.invalid">Id is less than 6</span>
+              <input matInput [formControl]="userPreffixName" name = "userPreffixName" [(ngModel)] = "userInfo.userName.prefixName" placeholder="Md.">
+              <span style="color: red" *ngIf="userPreffixName.invalid && userPreffixName.untouched">should not be number in name</span>
             </mat-form-field>
             <mat-form-field appearance="fill" fxFlex="40%">
               <mat-icon matPrefix>face</mat-icon>
@@ -25,139 +25,139 @@
             </mat-form-field>
         </div>
 
-        <div fxLayoutAlign="space-between" fxFlex="100%">
-          <mat-form-field appearance="fill" fxFlex="40%" >
-            <mat-icon matPrefix>face</mat-icon>
-            <mat-label>Mid Name</mat-label>
-            <input matInput name = "userMidName" [(ngModel)] = "userInfo.userName.midName" placeholder="Mahmudur" required>
-          </mat-form-field>
-          <mat-form-field appearance="fill" fxFlex="40%">
-            <mat-icon matPrefix>face</mat-icon>
-            <mat-label>Last Name</mat-label>
-            <input matInput name = "userMidName" [(ngModel)] = "userInfo.userName.lastName" placeholder="Rahman" required>
-          </mat-form-field>
-        </div>
+<!--        <div fxLayoutAlign="space-between" fxFlex="100%">-->
+<!--          <mat-form-field appearance="fill" fxFlex="40%" >-->
+<!--            <mat-icon matPrefix>face</mat-icon>-->
+<!--            <mat-label>Mid Name</mat-label>-->
+<!--            <input matInput name = "userMidName" [(ngModel)] = "userInfo.userName.midName" placeholder="Mahmudur" required>-->
+<!--          </mat-form-field>-->
+<!--          <mat-form-field appearance="fill" fxFlex="40%">-->
+<!--            <mat-icon matPrefix>face</mat-icon>-->
+<!--            <mat-label>Last Name</mat-label>-->
+<!--            <input matInput name = "userMidName" [(ngModel)] = "userInfo.userName.lastName" placeholder="Rahman" required>-->
+<!--          </mat-form-field>-->
+<!--        </div>-->
 
-        <mat-form-field appearance="fill" fxFlex="100%">
-          <mat-icon matPrefix>face</mat-icon>
-          <mat-label>Suffix Name</mat-label>
-          <input matInput name = "userSuffixName" [(ngModel)] = "userInfo.userName.suffixName" placeholder="jr" required>
-        </mat-form-field>
+<!--        <mat-form-field appearance="fill" fxFlex="100%">-->
+<!--          <mat-icon matPrefix>face</mat-icon>-->
+<!--          <mat-label>Suffix Name</mat-label>-->
+<!--          <input matInput name = "userSuffixName" [(ngModel)] = "userInfo.userName.suffixName" placeholder="jr" required>-->
+<!--        </mat-form-field>-->
 
 <!--        father's -->
-        <div fxLayoutAlign="space-between" fxFlex="100%">
-          <mat-form-field appearance="fill" fxFlex="40%">
-            <mat-icon matPrefix>face</mat-icon>
-            <mat-label>Father's Name</mat-label>
-            <input matInput name = "userFatherName" [(ngModel)] = "userInfo.fatherName" placeholder="Mahmudur" required>
-          </mat-form-field>
-          <mat-form-field appearance="fill" fxFlex="40%">
-            <mat-label>Father Occupation</mat-label>
-            <mat-select name = "userFatherOccupation" [(ngModel)] = "userInfo.fatherOccupation" required>
-              <mat-option *ngFor="let occupation of occupations" [value]="occupation">{{occupation}}</mat-option>
-            </mat-select>
-          </mat-form-field>
-        </div>
+<!--        <div fxLayoutAlign="space-between" fxFlex="100%">-->
+<!--          <mat-form-field appearance="fill" fxFlex="40%">-->
+<!--            <mat-icon matPrefix>face</mat-icon>-->
+<!--            <mat-label>Father's Name</mat-label>-->
+<!--            <input matInput name = "userFatherName" [(ngModel)] = "userInfo.fatherName" placeholder="Mahmudur" required>-->
+<!--          </mat-form-field>-->
+<!--          <mat-form-field appearance="fill" fxFlex="40%">-->
+<!--            <mat-label>Father Occupation</mat-label>-->
+<!--            <mat-select name = "userFatherOccupation" [(ngModel)] = "userInfo.fatherOccupation" required>-->
+<!--              <mat-option *ngFor="let occupation of occupations" [value]="occupation">{{occupation}}</mat-option>-->
+<!--            </mat-select>-->
+<!--          </mat-form-field>-->
+<!--        </div>-->
 
 <!--        mother-->
-        <div fxLayoutAlign="space-between" fxFlex="100%">
-          <mat-form-field appearance="fill" fxFlex="40%">
-            <mat-icon matPrefix>face</mat-icon>
-            <mat-label>Mother's Name</mat-label>
-            <input matInput name = "userMotherName" [(ngModel)] = "userInfo.motherName" placeholder="Mahmudur" required>
-          </mat-form-field>
-          <mat-form-field appearance="fill" fxFlex="40%">
-            <mat-label>Mother Occupation</mat-label>
-            <mat-select name = "userMotherOccupation" [(ngModel)] = "userInfo.motherOccupation" required>
-              <mat-option *ngFor="let occupation of occupations" [value]="occupation">{{occupation}}</mat-option>
-            </mat-select>
-          </mat-form-field>
-        </div>
+<!--        <div fxLayoutAlign="space-between" fxFlex="100%">-->
+<!--          <mat-form-field appearance="fill" fxFlex="40%">-->
+<!--            <mat-icon matPrefix>face</mat-icon>-->
+<!--            <mat-label>Mother's Name</mat-label>-->
+<!--            <input matInput name = "userMotherName" [(ngModel)] = "userInfo.motherName" placeholder="Mahmudur" required>-->
+<!--          </mat-form-field>-->
+<!--          <mat-form-field appearance="fill" fxFlex="40%">-->
+<!--            <mat-label>Mother Occupation</mat-label>-->
+<!--            <mat-select name = "userMotherOccupation" [(ngModel)] = "userInfo.motherOccupation" required>-->
+<!--              <mat-option *ngFor="let occupation of occupations" [value]="occupation">{{occupation}}</mat-option>-->
+<!--            </mat-select>-->
+<!--          </mat-form-field>-->
+<!--        </div>-->
 
-        <div fxLayoutAlign="space-between" fxFlex="100%">
-          <div fxFlex="40%">
-            <mat-form-field appearance="fill" fxFlex="30%">
-              <!--            <mat-icon matPrefix>phone</mat-icon>-->
+<!--        <div fxLayoutAlign="space-between" fxFlex="100%">-->
+<!--          <div fxFlex="40%">-->
+<!--            <mat-form-field appearance="fill" fxFlex="30%">-->
+<!--              &lt;!&ndash;            <mat-icon matPrefix>phone</mat-icon>&ndash;&gt;-->
 
-              <mat-select  name = "userMobileNumber" required>
-                <mat-option *ngFor="let mobile of mobileCountryCode" (click)="setMobilePrefix(mobile)" [value]="mobile">{{mobile}}</mat-option>
-              </mat-select>
-              <!--            <input style="display: inline" name = "userMobileNumber" [(ngModel)] = "userInfo.mobileNumber" matInput placeholder="01xxxxxxxxx" required>-->
-            </mat-form-field>
+<!--              <mat-select  name = "userMobileNumber" required>-->
+<!--                <mat-option *ngFor="let mobile of mobileCountryCode" (click)="setMobilePrefix(mobile)" [value]="mobile">{{mobile}}</mat-option>-->
+<!--              </mat-select>-->
+<!--              &lt;!&ndash;            <input style="display: inline" name = "userMobileNumber" [(ngModel)] = "userInfo.mobileNumber" matInput placeholder="01xxxxxxxxx" required>&ndash;&gt;-->
+<!--            </mat-form-field>-->
 
-            <mat-form-field  appearance="fill" fxFlex="70%">
-              <mat-label>Mobile No</mat-label>
-              <mat-chip-list #chipList aria-label="+8801xxxxxxxxx">
-                <mat-chip *ngFor="let mobile of userInfo.mobileNumber" (removed)="remove(mobile)">
-                  {{mobile.mobile}}
-                  <button matChipRemove>
-                    <mat-icon>cancel</mat-icon>
-                  </button>
-                </mat-chip>
-                <input placeholder="Mobile No."
-                       [matChipInputFor]="chipList"
-                       [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
-                       [matChipInputAddOnBlur]="addOnBlur"
-                       (matChipInputTokenEnd)="add($event)" type = "number" >
-              </mat-chip-list>
-            </mat-form-field>
-          </div>
+<!--            <mat-form-field  appearance="fill" fxFlex="70%">-->
+<!--              <mat-label>Mobile No</mat-label>-->
+<!--              <mat-chip-list #chipList aria-label="+8801xxxxxxxxx">-->
+<!--                <mat-chip *ngFor="let mobile of userInfo.mobileNumber" (removed)="remove(mobile)">-->
+<!--                  {{mobile.mobile}}-->
+<!--                  <button matChipRemove>-->
+<!--                    <mat-icon>cancel</mat-icon>-->
+<!--                  </button>-->
+<!--                </mat-chip>-->
+<!--                <input placeholder="Mobile No."-->
+<!--                       [matChipInputFor]="chipList"-->
+<!--                       [matChipInputSeparatorKeyCodes]="separatorKeysCodes"-->
+<!--                       [matChipInputAddOnBlur]="addOnBlur"-->
+<!--                       (matChipInputTokenEnd)="add($event)" type = "number" >-->
+<!--              </mat-chip-list>-->
+<!--            </mat-form-field>-->
+<!--          </div>-->
 
 
-          <mat-form-field appearance="fill" fxFlex="40%">
-            <mat-icon matPrefix>call</mat-icon>
-            <mat-label>Phone No.</mat-label>
-            <input name = "userPhoneNumber" [(ngModel)] = "userInfo.phoneNumber" matInput placeholder="01xxxxxxxxx" required>
-          </mat-form-field>
-        </div>
+<!--          <mat-form-field appearance="fill" fxFlex="40%">-->
+<!--            <mat-icon matPrefix>call</mat-icon>-->
+<!--            <mat-label>Phone No.</mat-label>-->
+<!--            <input name = "userPhoneNumber" [(ngModel)] = "userInfo.phoneNumber" matInput placeholder="01xxxxxxxxx" required>-->
+<!--          </mat-form-field>-->
+<!--        </div>-->
 
-        <div fxLayoutAlign="space-between" fxFlex="100%">
-          <mat-form-field appearance="fill" fxFlex="40%">
-            <mat-icon matPrefix>email</mat-icon>
-            <mat-label>Email Address</mat-label>
-            <input name = "userEmail" [(ngModel)] = "userInfo.email" matInput placeholder="name@gmail.com" required>
-          </mat-form-field>
-          <mat-form-field appearance="fill" fxFlex="40%">
-            <mat-icon matPrefix>opacity</mat-icon>
-            <mat-label>Gender</mat-label>
-            <mat-select name = "userGender" [(ngModel)] = "userInfo.gender" required>
-              <mat-option value="male">Male</mat-option>
-              <mat-option value="female">Female</mat-option>
-              <mat-option value="Other">Other</mat-option>
-            </mat-select>
-          </mat-form-field>
-        </div>
+<!--        <div fxLayoutAlign="space-between" fxFlex="100%">-->
+<!--          <mat-form-field appearance="fill" fxFlex="40%">-->
+<!--            <mat-icon matPrefix>email</mat-icon>-->
+<!--            <mat-label>Email Address</mat-label>-->
+<!--            <input name = "userEmail" [(ngModel)] = "userInfo.email" matInput placeholder="name@gmail.com" required>-->
+<!--          </mat-form-field>-->
+<!--          <mat-form-field appearance="fill" fxFlex="40%">-->
+<!--            <mat-icon matPrefix>opacity</mat-icon>-->
+<!--            <mat-label>Gender</mat-label>-->
+<!--            <mat-select name = "userGender" [(ngModel)] = "userInfo.gender" required>-->
+<!--              <mat-option value="male">Male</mat-option>-->
+<!--              <mat-option value="female">Female</mat-option>-->
+<!--              <mat-option value="Other">Other</mat-option>-->
+<!--            </mat-select>-->
+<!--          </mat-form-field>-->
+<!--        </div>-->
 
-        <div fxLayoutAlign="space-between" fxFlex="100%">
-          <mat-form-field appearance="fill" fxFlex="40%">
-            <mat-icon matPrefix>hourglass_full</mat-icon>
-            <mat-label>Select Religion</mat-label>
-            <mat-select name = "userReligion" [(ngModel)] = "userInfo.religion" required>
-              <mat-option value="Islam">Islam</mat-option>
-              <mat-option value="Hindu">Hindu</mat-option>
-              <mat-option value="Cristian">Christian</mat-option>
-              <mat-option value="Buddist">Buddist</mat-option>
-              <mat-option value="Other">Other</mat-option>
-            </mat-select>
-          </mat-form-field>
-          <mat-form-field appearance="fill" fxFlex="40%">
-            <mat-icon matPrefix>opacity</mat-icon>
-            <mat-label>Select Nationality</mat-label>
-            <mat-select name = "userNationality" [(ngModel)] = "userInfo.nationality" required>
-              <mat-option *ngFor ="let ct of country" [value]="ct">{{ct}}</mat-option>
-            </mat-select>
-          </mat-form-field>
-        </div>
+<!--        <div fxLayoutAlign="space-between" fxFlex="100%">-->
+<!--          <mat-form-field appearance="fill" fxFlex="40%">-->
+<!--            <mat-icon matPrefix>hourglass_full</mat-icon>-->
+<!--            <mat-label>Select Religion</mat-label>-->
+<!--            <mat-select name = "userReligion" [(ngModel)] = "userInfo.religion" required>-->
+<!--              <mat-option value="Islam">Islam</mat-option>-->
+<!--              <mat-option value="Hindu">Hindu</mat-option>-->
+<!--              <mat-option value="Cristian">Christian</mat-option>-->
+<!--              <mat-option value="Buddist">Buddist</mat-option>-->
+<!--              <mat-option value="Other">Other</mat-option>-->
+<!--            </mat-select>-->
+<!--          </mat-form-field>-->
+<!--          <mat-form-field appearance="fill" fxFlex="40%">-->
+<!--            <mat-icon matPrefix>opacity</mat-icon>-->
+<!--            <mat-label>Select Nationality</mat-label>-->
+<!--            <mat-select name = "userNationality" [(ngModel)] = "userInfo.nationality" required>-->
+<!--              <mat-option *ngFor ="let ct of country" [value]="ct">{{ct}}</mat-option>-->
+<!--            </mat-select>-->
+<!--          </mat-form-field>-->
+<!--        </div>-->
 
         <!--        permanent address-->
-        <div *ngIf="userInfo.nationality =='Bangladesh' else elseBlock">
-          <mat-label style="font-weight: bold; margin-right: auto">Permanent Address</mat-label>
-          <app-address></app-address>
-        </div>
-        <ng-template #elseBlock>
-          <mat-label style="font-weight: bold;margin-right: auto">Permanent Address</mat-label>
-          <app-other-country-address></app-other-country-address>
-        </ng-template>
+<!--        <div *ngIf="userInfo.nationality =='Bangladesh' else elseBlock">-->
+<!--          <mat-label style="font-weight: bold; margin-right: auto">Permanent Address</mat-label>-->
+<!--          <app-address></app-address>-->
+<!--        </div>-->
+<!--        <ng-template #elseBlock>-->
+<!--          <mat-label style="font-weight: bold;margin-right: auto">Permanent Address</mat-label>-->
+<!--          <app-other-country-address></app-other-country-address>-->
+<!--        </ng-template>-->
 
-        <button mat-raised-button style="margin-left: auto" (click)="nextPage()" color="primary">Next</button>
+        <button mat-raised-button [disabled] ="firstFormGroup.invalid" style="margin-left: auto" (click)="nextPage()" color="primary">Next</button>
       </form>

@@ -1,8 +1,8 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit,Input, Output, EventEmitter } from '@angular/core';
 import {Router} from "@angular/router";
 import {DataService} from "../../services/data.service";
 import {AppComponent} from "../../app.component";
-import {FormGroup, FormControl, Validators} from "@angular/forms";
+import {FormGroup, FormControl, Validators, FormBuilder} from "@angular/forms";
 import {MatChipInputEvent} from '@angular/material/chips';
 import {COMMA, ENTER} from "@angular/cdk/keycodes";
 
@@ -14,14 +14,22 @@ export interface Fruit {
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css']
 })
+
 export class HomeComponent implements OnInit {
 
   @Output() showData:EventEmitter<any> = new EventEmitter<any>();
   userInfo:any;
-
+  @Input() homeTrue:number = 1;
   six = 6;
-  constructor(private router:Router,private dataService:DataService) {
+  constructor(private _formBuilder:FormBuilder, private router:Router,private dataService:DataService) {
   }
+
+  userId = new FormControl("",[Validators.email]);
+  userPreffixName = new FormControl("",[Validators.pattern('/[a-zA-Z]*/'), Validators.required]);
+  firstFormGroup = this._formBuilder.group({
+    userId: this.userId,
+    userPreffixName: this.userPreffixName,
+  });
 
   // firstForm = new FormGroup(
   //   {
