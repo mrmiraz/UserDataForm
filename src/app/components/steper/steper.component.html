@@ -1,20 +1,18 @@
+
+{{updateProgress}}
+<mat-progress-bar [value] = "updateProgress"style="margin-bottom: -10px"></mat-progress-bar>
 <mat-stepper #stepper>
   <mat-step [stepControl]="firstFormGroup">
     <form [formGroup]="firstFormGroup">
       <ng-template  matStepLabel>Personal Info</ng-template>
-      <mat-progress-bar value = "33"></mat-progress-bar>
       <div  style="margin-top: 20px"></div>
-      <app-home></app-home>
-      <button mat-button style = "margin-right: 0px">Next</button>
     </form>
   </mat-step>
 
   <mat-step [stepControl]="secondFormGroup" >
     <form [formGroup]="secondFormGroup" >
-      <ng-template matStepLabel>
-        <button  routerLink="page2" mat-button>Page 2</button>
+      <ng-template matStepLabel> Page2
       </ng-template>
-      <app-page2></app-page2>
     </form>
   </mat-step>
   <mat-step>

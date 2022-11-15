@@ -4,7 +4,6 @@
   </mat-card-title>
     <!-- Title of an Card -->
       <form #myForm="ngForm" [formGroup]="firstFormGroup" (ngSubmit)="onSubmit()" fxLayout="row wrap" fxLayoutAlign="space-between center">
-
         <mat-form-field  appearance="fill" fxFlex="100%">
           <mat-icon matPrefix>account_box</mat-icon>
           <mat-label>Id No</mat-label>
@@ -18,11 +17,11 @@
               <input matInput [formControl]="userPreffixName" name = "userPreffixName" [(ngModel)] = "userInfo.userName.prefixName" placeholder="Md.">
               <span style="color: red" *ngIf="userPreffixName.invalid && userPreffixName.untouched">should not be number in name</span>
             </mat-form-field>
-            <mat-form-field appearance="fill" fxFlex="40%">
-              <mat-icon matPrefix>face</mat-icon>
-              <mat-label>First Name</mat-label>
-              <input matInput name = "userFirstName" [(ngModel)] = "userInfo.userName.firstName" placeholder="Rahman" required>
-            </mat-form-field>
+<!--            <mat-form-field appearance="fill" fxFlex="40%">-->
+<!--              <mat-icon matPrefix>face</mat-icon>-->
+<!--              <mat-label>First Name</mat-label>-->
+<!--              <input matInput name = "userFirstName" [(ngModel)] = "userInfo.userName.firstName" placeholder="Rahman" required>-->
+<!--            </mat-form-field>-->
         </div>
 
 <!--        <div fxLayoutAlign="space-between" fxFlex="100%">-->

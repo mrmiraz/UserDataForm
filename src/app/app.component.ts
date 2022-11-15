@@ -15,9 +15,11 @@ interface dataType{
 })
 
 export class AppComponent {
-  progress:any;
+  progress!:number;
   constructor(private  dataService:DataService) {
-    this.progress = dataService.getUserProgress();
+    this.dataService.updateProgres.subscribe(res=>{
+      this.progress = res;
+    });
   }
 
   userInfo = {

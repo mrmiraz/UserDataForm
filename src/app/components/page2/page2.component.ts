@@ -22,9 +22,13 @@ export class Page2Component implements OnInit {
   @Output() parentFunction: EventEmitter<any> = new EventEmitter<any>();
   userInfo:any;
   mir:any;
+  updateProgress!:number;
   constructor(private dataService:DataService) {
     this.userInfo = dataService.userInfo;
     this.dataService.progress = 33;
+    this.dataService.updateProgres.subscribe(res=>{
+      this.updateProgress = res;
+    })
     // console.log(this.userInfo.userName.firstName);
   }
 
@@ -49,7 +53,9 @@ export class Page2Component implements OnInit {
   // }
   ngOnInit(): void {
     this.parentFunction.emit();
+    this.dataService.updateProgres.next(66);
   }
+
   bloodGroup=["A+","A-","B+","B-","AB+","AB-","O+","O-"];
   maritalStatus =["Married","Unmarried","Other"];
   diability=["vision Impairment","deaf or hard of hearing","mental health conditions.","intellectual disability","acquired brain injury","physical disability","Other"];

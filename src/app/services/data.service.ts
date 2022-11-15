@@ -1,14 +1,17 @@
 import { Injectable } from '@angular/core';
+import {Subject} from "rxjs";
 
 @Injectable({
   providedIn: 'root'
 })
 export class DataService {
 
+  updateProgres = new Subject<number>();
+
   constructor() { }
   name = {
-    "firstName":"",
-    "midName":"",
+    firstName:"",
+    midName:"",
     "lastName":"",
     "suffixName":""
   }
@@ -23,56 +26,56 @@ export class DataService {
   }
 
   userInfo ={
-    "id":"",
-    "userName":{
-      "prefixName":"",
-      "firstName":"",
-      "midName":"",
-      "lastName":"",
-      "suffixName":""
+    id:"",
+    userName:{
+      prefixName:"",
+      firstName:"",
+      midName:"",
+      lastName:"",
+      suffixName:""
     },
-    "fatherName":"",
-    "fatherOccupation":"",
-    "motherName":"",
-    "motherOccupation":"",
-    "presentAddress":{
-      "village":"",
-      "upazila":"",
-      "policeStation":"",
-      "postOffice":"",
-      "postCode":"",
-      "district":""
+    fatherName:"",
+    fatherOccupation:"",
+    m0otherName:"",
+    motherOccupation:"",
+    presentAddress:{
+      village:"",
+      upazila:"",
+      policeStation:"",
+      postOffice:"",
+      postCode:"",
+      district:""
     },
-    "permanentAddress":{
-      "village":"",
-      "upazila":"",
-      "policeStation":"",
-      "postOffice":"",
-      "postCode":"",
-      "district":""
+    permanentAddress:{
+      village:"",
+      upazila:"",
+      policeStation:"",
+      postOffice:"",
+      postCode:"",
+      district:""
     },
-    "otherCountryAddress":{
-      "addressLine1":"",
-      "addressLine2":"",
-      "city":"",
-      "state":"",
+    otherCountryAddress:{
+      addressLine1:"",
+      addressLine2:"",
+      city:"",
+      state:"",
     },
-    "gender":"",
-    "religion":"",
-    "nationality":"Bangladesh",
-    "mobileNumber":[],
-    "phoneNumber":"",
-    "email":"",
-    "state":"",
-    "medicalDisability":"",
-    "dateOfBirth":"",
-    "bloodGroup":"",
-    "disability":"",
-    "nationalIdNo":"",
-    "postalCode":"",
-    "passportNo":"",
-    "tinNo":"",
-    "maritalStatus":"",
+    gender:"",
+    religion:"",
+    nationality:"Bangladesh",
+    mobileNumber:[],
+    phoneNumber:"",
+    email:"",
+    state:"",
+    medicalDisability:"",
+    dateOfBirth:"",
+    bloodGroup:"",
+    disability:"",
+    nationalIdNo:"",
+    postalCode:"",
+    passportNo:"",
+    tinNo:"",
+    maritalStatus:"",
   }
 
   setUserData(data:any){

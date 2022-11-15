@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {FormBuilder, Validators} from '@angular/forms';
 import {STEPPER_GLOBAL_OPTIONS} from '@angular/cdk/stepper';
 import {Router} from "@angular/router";
+import {DataService} from "../../services/data.service";
 
 @Component({
   selector: 'app-steper',
@@ -16,7 +17,13 @@ import {Router} from "@angular/router";
 })
 export class SteperComponent implements OnInit {
 
-  constructor(private _formBuilder: FormBuilder,private router:Router) { }
+  updateProgress!:number;
+  constructor(private _formBuilder: FormBuilder,private router:Router, private _dataService: DataService) {
+    _dataService.updateProgres.subscribe(res=>{
+      this.updateProgress = res;
+    })
+  }
+
   firstFormGroup = this._formBuilder.group({
     firstCtrl: ['', Validators.required],
   });
@@ -29,6 +36,7 @@ export class SteperComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this._dataService.updateProgres.next(33);
   }
 
 }

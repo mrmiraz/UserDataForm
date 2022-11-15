@@ -21,27 +21,19 @@ export class HomeComponent implements OnInit {
   userInfo:any;
   @Input() homeTrue:number = 1;
   six = 6;
+  updateProgress!:number;
   constructor(private _formBuilder:FormBuilder, private router:Router,private dataService:DataService) {
+    this.dataService.updateProgres.subscribe(res=>{
+      this.updateProgress = res;
+    })
   }
 
-  userId = new FormControl("",[Validators.email]);
-  userPreffixName = new FormControl("",[Validators.pattern('/[a-zA-Z]*/'), Validators.required]);
+   userId = new FormControl("",[Validators.email]);
+  userPreffixName = new FormControl("",[Validators.pattern('^[a-zA-Z]+$'), Validators.required]);
   firstFormGroup = this._formBuilder.group({
     userId: this.userId,
     userPreffixName: this.userPreffixName,
   });
-
-  // firstForm = new FormGroup(
-  //   {
-  //     // "user":new FormControl('',[Validators.required]),
-  //     userBloodGroup: new FormControl('',[Validators.required]),
-  //   }
-  // );
-  //
-  // get userBlood(){
-  //   return this.firstForm.get('userBloodGroup');
-  // }
-
 
   mobileCountryCode =["+93","+213","+880"]
   occupations=["Businessman","Farmer", "Teacher","Lawyer","House-wife"]
@@ -56,9 +48,9 @@ export class HomeComponent implements OnInit {
   }
 
   onSubmit(){
+
     // console.log(this.userInfo.userName.firstName);
   }
-
 
   nextPage(){
     this.onSubmit();
@@ -96,6 +88,6 @@ export class HomeComponent implements OnInit {
 
   ngOnInit(): void {
     this.userInfo = this.dataService.getUserDate();
-    this.dataService.setUserProgress(30);
+    this.dataService.updateProgres.next(33);
   }
 }

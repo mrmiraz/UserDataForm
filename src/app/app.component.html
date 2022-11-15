@@ -3,10 +3,10 @@
 <div fxLayout="row wrap" fxLayoutAlign="space-between center">
     <mat-card fxFlex = "70%" >
       <app-steper></app-steper>
-<!--      <a mat-raised-button  routerLink="" color="primary"  >Home</a>-->
-<!--      <a mat-raised-button style="margin: 10px" routerLink="page2" color="primary">Page 2</a>-->
+      <a mat-raised-button  routerLink="" color="primary"  >Home</a>
+      <a [disabled]="progress<65" mat-raised-button style="margin: 10px" routerLink="page2" color="primary">Page 2</a>
 <!--      <mat-progress-bar style="margin-top: 2%; margin-bottom: 2%" mode="determinate" [value]="progress"></mat-progress-bar>-->
-<!--      <router-outlet></router-outlet>-->
+      <router-outlet></router-outlet>
     </mat-card>
   <mat-card fxFlex = "20%" fxFlex.sm ="100%" style="background-color:rgb(179, 255, 195)">
     <app-datashow></app-datashow>
