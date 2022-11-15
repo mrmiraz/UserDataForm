@@ -1,8 +1,8 @@
 
 
+{{userInfo['presentAddress']['village']}}
+{{userInfo[address]['village']}}
 <div fxLayout="row wrap" fxLayoutAlign="space-between center">
-
-
   <div fxLayoutAlign="space-between" fxFlex="100%">
     <mat-form-field appearance="fill" fxFlex="40%">
       <mat-icon matPrefix>home</mat-icon>
@@ -47,7 +47,7 @@
     <mat-form-field appearance="fill" fxFlex="40%">
       <mat-icon matPrefix>home</mat-icon>
       <mat-label>House/Village</mat-label>
-      <mat-select  name = "permanentVillage" [(ngModel)] = "userInfo.permanentAddress.village" matInput placeholder="Kaliakair" required>
+      <mat-select  name = "permanentVillage" [(ngModel)] = "userInfo[address]['village']" matInput placeholder="Kaliakair" required>
         <mat-option *ngFor="let permanentVillage of villages"  [value]="permanentVillage" >{{permanentVillage}}</mat-option>
       </mat-select>
 <!--      <input matInput name = "permanentVillage" [(ngModel)] = "userInfo.permanentAddress.village"  placeholder="Baganbari" required>-->

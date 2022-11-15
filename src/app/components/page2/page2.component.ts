@@ -18,6 +18,7 @@ import {
 
 export class Page2Component implements OnInit {
 
+  address = "presentAddress"
   @Output() parentFunction: EventEmitter<any> = new EventEmitter<any>();
   userInfo:any;
   mir:any;

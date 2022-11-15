@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component,Input, OnInit } from '@angular/core';
 import {DataService} from "../../services/data.service";
 
 @Component({
@@ -8,6 +8,7 @@ import {DataService} from "../../services/data.service";
 })
 export class AddressComponent implements OnInit {
 
+  @Input() address:string="permanent";
   constructor(private dataService:DataService) { }
   userInfo:any;
   ngOnInit(): void {
